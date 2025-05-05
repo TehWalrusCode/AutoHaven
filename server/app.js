@@ -19,12 +19,18 @@ const PORT = process.env.PORT || 5000;
 // Database Connection
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/autohaven', {
+    await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       retryWrites: true
+    }).then(() => {
+
+      const PORT = process.env.PORT
+      app.listen(PORT, () => {
+        console.log(`App listening on port: ${PORT}`);
+      });
+
     });
-    console.log('MongoDB connected successfully');
   } catch (err) {
     console.error('MongoDB connection failed:', err.message);
     process.exit(1); // Exit if DB connection fails
