@@ -39,7 +39,10 @@ const connectDB = async () => {
 connectDB();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: "https://autohaven-frontend.onrender.com"
+}
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
