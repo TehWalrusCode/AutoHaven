@@ -8,7 +8,7 @@ const userRoutes = require('./routes/users');
 const contactRoutes = require('./routes/contact');
 
 console.log('Environment Variables:', {
-  MONGO_URI: process.env.MONGO_URI,
+  MONGODB_URI: process.env.MONGODB_URI,
   PORT: process.env.PORT
 });
 
@@ -19,7 +19,7 @@ const PORT = process.env.PORT;
 // Database Connection
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       retryWrites: true
