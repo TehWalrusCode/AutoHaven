@@ -8,7 +8,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
 
 // Set base URL for axios
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = process.env.BACKEND_URL;
 
 // Add token to every request if available
 axios.interceptors.request.use(

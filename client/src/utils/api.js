@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Create an axios instance with a predefined base URL pointing to your backend API
-const API = axios.create({ baseURL: 'http://localhost:5000/api' });
+const API = axios.create({ baseURL: `${process.env.BACKEND_URL}/api` });
 
 // Add a request interceptor to attach the token to every request if the user is logged in
 API.interceptors.request.use((req) => {
